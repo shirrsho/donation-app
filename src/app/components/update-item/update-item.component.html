@@ -1,0 +1,10 @@
+<form>
+  <label>Name</label>
+  <input
+    type="text"
+    id="name"
+    [(ngModel)]="givenItem.name"
+    [ngModelOptions]="{ standalone: true }"
+  />
+  <button (click)="updateItem()">Save</button>
+</form>

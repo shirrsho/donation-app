@@ -1,0 +1,14 @@
+<div class="cards">
+  <div *ngFor="let item of items; let i = index">
+    <div class="card">
+      <label class="label">{{ item.name }}</label>
+      <img />
+      <div class="butbar">
+        <button class="button">Claim</button>
+        <button class="button">Chat</button>
+        <button class="button" (click)="deleteItem(item)">Delete</button>
+        <button class="button" (click)="updateItem(item, i)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
