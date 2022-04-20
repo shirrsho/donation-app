@@ -1,15 +1,31 @@
-<h1 align="center">{{item.productName}} <br> </h1>
-<h2 align="center">{{item.condition}}</h2>
+<div
+  class="card"
+  style="display: flex; margin: auto; width: fit-content; padding-right: 20px"
+>
+  <label class="label"
+    ><b style="text-transform: uppercase"> {{ item.productName }}</b></label
+  >
+
+  <div class="det">Condition: {{ item.condition }}</div>
+  <div class="det">Location: {{ item.location }}</div>
+  <div class="det">Upload Date: {{ item.uploadDate }}</div>
+  <div class="det">Uploader ID: {{ item.uploaderID }}</div>
+  <div class="det">Used Period: {{ item.usedPeriod }}</div>
+</div>
 
 <div class="cards">
-    <div *ngFor="let requester of requesters; let i = index">
-      <div class="card">
-        <label class="label"><b style="text-transform:uppercase"> {{ requester.fullName }}</b></label>
-        
-        <div> email: {{requester.email}}</div> 
-        <div> phone: {{requester.phoneNumber}}</div> 
-        <div> address: {{requester.address}}</div> 
-        
-      </div>
+  <div *ngFor="let requester of requesters; let i = index">
+    Requesters:
+    <div class="card">
+      <label class="label"
+        ><b style="text-transform: uppercase">
+          {{ requester.fullName }}</b
+        ></label
+      >
+
+      <div>email: {{ requester.email }}</div>
+      <div>phone: {{ requester.phoneNumber }}</div>
+      <div>address: {{ requester.address }}</div>
     </div>
   </div>
+</div>

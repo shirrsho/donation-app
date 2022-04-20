@@ -10,10 +10,14 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 
 const routes: Routes = [
-  { path: '', component: SignupComponent },
+  { path: '', component: DashboardComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent }, // canActivate: [AuthGuard] },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'update-item', component: UpdateItemComponent },
   { path: 'profile', component: ProfileComponent },
   {

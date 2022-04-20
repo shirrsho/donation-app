@@ -15,28 +15,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUserProfile().subscribe(
-      (res:any) => {
+      (res: any) => {
         this.userDetails = res['user'];
         //this.userid = res._id;
         console.log(this.userDetails);
         //console.log(res._id);
       },
-      (err:any) => {}
+      (err: any) => {}
     );
   }
 
-  logout(){
+  logout() {
     this.userService.deleteToken();
     this.userService.loginStatus = false;
     this.userDetails = new User();
     this.router.navigateByUrl('/login');
   }
 
-  viewProfile(){
-    this.router.navigateByUrl('profile');
-  }
-
-  donate(){
+  donate() {
     this.router.navigateByUrl('add');
   }
 }

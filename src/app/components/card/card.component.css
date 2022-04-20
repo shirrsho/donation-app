@@ -9,14 +9,19 @@
   flex-wrap: wrap;
 }
 
+.det {
+  margin-left: 40px;
+}
+
 .card {
-  height: 200px;
+  height: 250px;
   width: 300px;
   display: flex;
   flex-direction: column;
-  border: 1px solid blueviolet;
+  border: 1px solid gray;
   margin: 20px;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
+  justify-content: center;
 }
 
 .card:hover {
@@ -32,16 +37,18 @@
 
 .button {
   width: fit-content;
-  background-color: aqua;
-  border-radius: 5px;
+  background-color: lightblue;
+  margin-left: 2px;
   margin-top: 50px;
   z-index: 10px;
-  border: 0.5px solid black;
+  border: none;
+  border-radius: 3px;
   box-shadow: inset;
 }
 
 .button:hover {
-  background-color: aquamarine;
+  border: 0.5px solid black;
+  border-radius: 3px;
 }
 
 .butbar {

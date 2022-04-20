@@ -1,18 +1,144 @@
-<h3>Sign UP</h3>
+<!-- <h3>Sign UP</h3>
 
 <form class="form">
   <label class="label">Name</label>
-  <input class="inbox" type="string" placeholder="name" [(ngModel)]="selectedUser.fullName" [ngModelOptions]="{standalone: true}"/>
+  <input
+    class="inbox"
+    type="string"
+    placeholder="name"
+    [(ngModel)]="selectedUser.fullName"
+    [ngModelOptions]="{ standalone: true }"
+  />
   <label class="label">Email</label>
-  <input class="inbox" type="string" placeholder="name" [(ngModel)]="selectedUser.email" [ngModelOptions]="{standalone: true}"/>
+  <input
+    class="inbox"
+    type="string"
+    placeholder="name"
+    [(ngModel)]="selectedUser.email"
+    [ngModelOptions]="{ standalone: true }"
+  />
   <label class="label">Address</label>
-  <input class="inbox" type="string" placeholder="name" [(ngModel)]="selectedUser.address" [ngModelOptions]="{standalone: true}"/>
+  <input
+    class="inbox"
+    type="string"
+    placeholder="name"
+    [(ngModel)]="selectedUser.address"
+    [ngModelOptions]="{ standalone: true }"
+  />
   <label class="label">Phone Number</label>
-  <input class="inbox" type="string" placeholder="name" [(ngModel)]="selectedUser.phoneNumber" [ngModelOptions]="{standalone: true}"/>
+  <input
+    class="inbox"
+    type="string"
+    placeholder="name"
+    [(ngModel)]="selectedUser.phoneNumber"
+    [ngModelOptions]="{ standalone: true }"
+  />
   <label class="label">Password</label>
-  <input class="inbox" type="password" placeholder="name" [(ngModel)]="selectedUser.password" [ngModelOptions]="{standalone: true}"/>
+  <input
+    class="inbox"
+    type="password"
+    placeholder="name"
+    [(ngModel)]="selectedUser.password"
+    [ngModelOptions]="{ standalone: true }"
+  />
   <label class="label">Confirm Password</label>
-  <input class="inbox" type="passowrd" placeholder="name" [(ngModel)]="this.cPassword" [ngModelOptions]="{standalone: true}"/>
-  <div style="color: red;" class="alert" *ngIf="serverErrorMessages">{{this.serverErrorMessages}}</div>
+  <input
+    class="inbox"
+    type="passowrd"
+    placeholder="name"
+    [(ngModel)]="this.cPassword"
+    [ngModelOptions]="{ standalone: true }"
+  />
+  <div style="color: red" class="alert" *ngIf="serverErrorMessages">
+    {{ this.serverErrorMessages }}
+  </div>
   <button class="button" (click)="signUp()">SignUP</button>
-</form>
+</form> -->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h1 style="padding-top: 30px; padding-bottom: 10px">SIGN UP</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input
+        type="text"
+        id="login"
+        class="fadeIn second"
+        name="login"
+        placeholder="Full Name"
+        [(ngModel)]="selectedUser.fullName"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <input
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="login"
+        placeholder="Email"
+        [(ngModel)]="selectedUser.email"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <input
+        type="text"
+        id="address"
+        class="fadeIn third"
+        name="login"
+        placeholder="Address"
+        [(ngModel)]="selectedUser.address"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <input
+        type="text"
+        id="phoneNumber"
+        class="fadeIn third"
+        name="login"
+        placeholder="Phone"
+        [(ngModel)]="selectedUser.phoneNumber"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <input
+        type="text"
+        id="password"
+        class="fadeIn third"
+        name="login"
+        placeholder="Password"
+        [(ngModel)]="selectedUser.password"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <input
+        type="text"
+        id="cpassword"
+        class="fadeIn third"
+        name="login"
+        placeholder="Confirm Passowrd"
+        [(ngModel)]="this.cPassword"
+        [ngModelOptions]="{ standalone: true }"
+      />
+
+      <div style="color: red" class="alert" *ngIf="serverErrorMessages">
+        {{ this.serverErrorMessages }}
+      </div>
+
+      <input
+        type="submit"
+        class="fadeIn fourth"
+        value="Sign UP"
+        (click)="signUp()"
+      />
+
+      <label id="footer" (click)="hasAccount()"
+        >Already have an account? Log IN now!</label
+      >
+    </form>
+  </div>
+</div>

@@ -26,4 +26,8 @@ export class NavbarComponent implements OnInit {
   gotoAddItem(): void {
     this.router.navigate(['add']);
   }
+
+  viewProfile() {
+    this.router.navigateByUrl('profile');
+  }
 }
