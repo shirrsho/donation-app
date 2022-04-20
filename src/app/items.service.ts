@@ -1,20 +1,21 @@
 import { Item } from './Item';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
-  items: Item[] = [
-    { id: 1, name: 'Teach Yourself C', picsrc: '', owner: 0, requests: [] },
-    { id: 2, name: 'Software Engineering', picsrc: '', owner: 0, requests: [] },
-  ];
-  constructor() {}
+  items!: Item[];
+  constructor(private http:HttpClient) {}
 
   itemToBeUpdated = new Item();
   itemToBeUpdatedIndex: any = 0;
-  getItems(): Item[] {
-    return this.items;
+
+
+  getItems() {
+    return this.http.get(environment.apiBaseUrl+ '/products');
   }
 
   deleteItem(givenItem: Item): Item[] {
@@ -36,6 +37,6 @@ export class ItemsService {
   }
 
   addItem(givenItem: Item) {
-    this.items.push(givenItem);
+    return this.http.post(environment.apiBaseUrl+'/addproduct', givenItem)
   }
 }

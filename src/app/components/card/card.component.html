@@ -1,13 +1,17 @@
 <div class="cards">
   <div *ngFor="let item of items; let i = index">
     <div class="card">
-      <label class="label">{{ item.name }}</label>
-      <img />
+      <label class="label">{{ item.productName }}</label>
+      
+      <div> uploaded: {{item.uploadDate}}</div> 
+      <div> condition: {{item.condition}}</div> 
+      <div> used Period: {{item.usedPeriod}}</div> 
+      
       <div class="butbar">
-        <button class="button">Claim</button>
-        <button class="button">Chat</button>
-        <button class="button" (click)="deleteItem(item)">Delete</button>
-        <button class="button" (click)="updateItem(item, i)">Update</button>
+        <button class="button" *ngIf="userDetails._id!=item.uploaderID">Claim</button>
+        <button class="button" *ngIf="userDetails._id!=item.uploaderID">Chat</button>
+        <button class="button" (click)="deleteItem(item)" *ngIf="userDetails._id==item.uploaderID">Delete</button>
+        <button class="button" (click)="updateItem(item, i)" *ngIf="userDetails._id==item.uploaderID">Update</button>
       </div>
     </div>
   </div>

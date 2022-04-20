@@ -31,4 +31,12 @@ export class DashboardComponent implements OnInit {
     this.userDetails = new User();
     this.router.navigateByUrl('/login');
   }
+
+  viewProfile(){
+    this.router.navigateByUrl('profile');
+  }
+
+  donate(){
+    this.router.navigateByUrl('add');
+  }
 }

@@ -44,6 +44,7 @@ export class UserService {
 
   getUserPayload(){
     var token = this.getToken();
+    console.log('payload: ', token);
     if(token){
       var userPayload = atob(token.split('.')[1]);
       return JSON.parse(userPayload);

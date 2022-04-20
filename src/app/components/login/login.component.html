@@ -2,8 +2,8 @@
 
 <form class="form">
   <label class="label">Email</label>
-  <input class="inbox" type="string" placeholder="name" />
+  <input class="inbox" type="email" placeholder="name" [(ngModel)]="this.model.email" [ngModelOptions]="{standalone: true}"/>
   <label class="label">Password</label>
-  <input class="inbox" type="string" placeholder="name" />
-  <button class="button" (click)="loggedin()">Login</button>
+  <input class="inbox" type="string" placeholder="name" [(ngModel)]="this.model.password" [ngModelOptions]="{standalone: true}"/>
+  <button class="button" (click)="signIn()">Login</button>
 </form>

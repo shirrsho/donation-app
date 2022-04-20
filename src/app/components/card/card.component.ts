@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { ItemsService } from './../../items.service';
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/Item';
+import { User } from 'src/app/User';
+import { UserService } from 'src/app/users.service';
 
 @Component({
   selector: 'app-card',
@@ -9,18 +11,46 @@ import { Item } from 'src/app/Item';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnInit {
-  constructor(private ItemsService: ItemsService, private router: Router) {}
+  constructor(private itemsService: ItemsService, private router: Router, private userService: UserService) {}
+  items!: Item[];
+  userDetails = new User();
+  
 
-  items = this.ItemsService.getItems();
+  ngOnInit(): void {
+    this.refreshItemList();
+    this.userService.getUserProfile().subscribe(
+      (res:any) => {
+        this.userDetails = res['user'];
+        //this.userid = res._id;
+        console.log(this.userDetails);
+        console.log(this.userDetails._id);
+        //console.log(res._id);
+      },
+      (err:any) => {}
+    );
+  }
 
-  ngOnInit(): void {}
+  refreshItemList(){
+    console.log('called')
+    this.itemsService.getItems().subscribe(
+      (res:any) => {
+        this.itemsService.items = res as Item[];
+        this.items = this.itemsService.items;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
   deleteItem(item: Item): void {
-    this.items = this.ItemsService.deleteItem(item);
+    //this.items = this.ItemsService.deleteItem(item);
   }
 
   updateItem(item: Item, i: any): void {
-    this.ItemsService.setItemToBeUpdated(item, i);
+    this.itemsService.setItemToBeUpdated(item, i);
     this.router.navigate(['update-item']);
   }
+  
+
 }

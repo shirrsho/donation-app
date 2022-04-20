@@ -10,7 +10,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './components/auth/auth.guard';
+import { UserService } from './users.service';
+import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { ProfileComponent } from './profile/profile.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     CardComponent,
     UpdateItemComponent,
+    ProfileComponent,
+    AddItemComponent,
   ],
   exports: [
     AppComponent,
@@ -31,7 +38,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }, AuthGuard, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

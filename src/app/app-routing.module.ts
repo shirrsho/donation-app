@@ -5,6 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './components/auth/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 const routes: Routes = [
   { path: '', component: SignupComponent },
@@ -12,6 +14,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'update-item', component: UpdateItemComponent },
+  { path: 'profile', component: ProfileComponent},
+  {
+    path: 'add', component: AddItemComponent
+  }
+
 ];
 
 @NgModule({
