@@ -12,13 +12,13 @@ const routes: Routes = [
   { path: '', component: SignupComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent }, // canActivate: [AuthGuard] },
   { path: 'update-item', component: UpdateItemComponent },
-  { path: 'profile', component: ProfileComponent},
+  { path: 'profile', component: ProfileComponent },
   {
-    path: 'add', component: AddItemComponent
-  }
-
+    path: 'add',
+    component: AddItemComponent,
+  },
 ];
 
 @NgModule({

@@ -22,4 +22,8 @@ export class NavbarComponent implements OnInit {
   gotoDashboard(): void {
     this.router.navigate(['dashboard']);
   }
+
+  gotoAddItem(): void {
+    this.router.navigate(['add']);
+  }
 }

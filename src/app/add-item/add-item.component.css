@@ -1,0 +1,9 @@
+.form {
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+.form-group {
+  padding-bottom: 20px;
+}
