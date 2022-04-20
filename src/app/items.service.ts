@@ -19,7 +19,7 @@ export class ItemsService {
   }
 
   deleteItem(givenItem: Item) {
-    return this.http.delete(environment.apiBaseUrl+'/'+ givenItem._id);
+    return this.http.delete(environment.apiBaseUrl+'/product/'+ givenItem._id);
   }
 
   setItemToBeUpdated(givenitem: Item, i: number) {

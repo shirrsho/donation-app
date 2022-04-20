@@ -57,7 +57,11 @@ export class CardComponent implements OnInit {
   }
 
   delete(){
-    
+    this.itemsService.deleteItem(this.selectedItem).subscribe(
+      (res)=>{
+        this.refreshItemList();
+      }
+    );
   }
   
 
