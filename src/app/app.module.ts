@@ -16,6 +16,7 @@ import { UserService } from './users.service';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ViewDetailsComponent } from './view-details/view-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AddItemComponent } from './add-item/add-item.component';
     UpdateItemComponent,
     ProfileComponent,
     AddItemComponent,
+    ViewDetailsComponent,
   ],
   exports: [
     AppComponent,

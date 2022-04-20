@@ -63,6 +63,16 @@ export class CardComponent implements OnInit {
       }
     );
   }
+
+  claim(){
+    console.log('claimed');
+    this.itemsService.claimItem(this.selectedItem, this.userDetails._id).subscribe(
+      (res)=>{
+        console.log(res);
+        console.log('successfully requested')
+      }
+    )
+  }
   
 
 }

@@ -2,7 +2,6 @@ import { Item } from './Item';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +11,10 @@ export class ItemsService {
 
   itemToBeUpdated = new Item();
   itemToBeUpdatedIndex: any = 0;
-
+  tempURL: string='';
+  model = {
+    userID: ''
+  }
 
   getItems() {
     return this.http.get(environment.apiBaseUrl+ '/products');
@@ -20,6 +22,12 @@ export class ItemsService {
 
   deleteItem(givenItem: Item) {
     return this.http.delete(environment.apiBaseUrl+'/product/'+ givenItem._id);
+  }
+
+  claimItem(givenItem: Item, requesterID: string){
+    this.tempURL = environment.apiBaseUrl + '/product/join/' + givenItem._id;
+    this.model.userID = requesterID;
+    return this.http.put(this.tempURL,this.model);
   }
 
   setItemToBeUpdated(givenitem: Item, i: number) {
