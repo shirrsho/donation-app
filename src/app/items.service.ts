@@ -27,6 +27,7 @@ export class ItemsService {
   claimItem(givenItem: Item, requesterID: string){
     this.tempURL = environment.apiBaseUrl + '/product/join/' + givenItem._id;
     this.model.userID = requesterID;
+    console.log(this.model, this.tempURL);
     return this.http.put(this.tempURL,this.model);
   }
 
