@@ -73,6 +73,11 @@ export class CardComponent implements OnInit {
       }
     )
   }
+
+  onClickViewDetails(givenItem: Item){
+    this.itemsService.selectedItem = givenItem;
+    this.router.navigateByUrl('view-details');
+  }
   
 
 }
