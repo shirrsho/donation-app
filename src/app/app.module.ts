@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UpdateItemComponent } from './components/update-item/update-item.compon
     SignupComponent,
     NavbarComponent,
     DashboardComponent,
+    HttpClientModule
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
