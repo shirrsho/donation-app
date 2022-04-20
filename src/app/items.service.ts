@@ -18,9 +18,8 @@ export class ItemsService {
     return this.http.get(environment.apiBaseUrl+ '/products');
   }
 
-  deleteItem(givenItem: Item): Item[] {
-    this.items = this.items.filter((item) => givenItem.id != item.id);
-    return this.items;
+  deleteItem(givenItem: Item) {
+    return this.http.delete(environment.apiBaseUrl+'/'+ givenItem._id);
   }
 
   setItemToBeUpdated(givenitem: Item, i: number) {
@@ -33,7 +32,7 @@ export class ItemsService {
   }
 
   updateItem(givenItem: Item) {
-    this.items.splice(this.itemToBeUpdatedIndex, 1, givenItem);
+    return this.http.put(environment.apiBaseUrl+'/product/'+ givenItem._id, givenItem);
   }
 
   addItem(givenItem: Item) {

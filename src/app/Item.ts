@@ -1,5 +1,5 @@
 export class Item {
-  id: number = 0;
+  _id: number = 0;
   productName: string = '';
   location: string = '';
   uploadDate: string = '';

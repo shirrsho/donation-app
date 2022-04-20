@@ -10,11 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class UpdateItemComponent implements OnInit {
   constructor(private itemService: ItemsService, private router: Router) {}
 
-  givenItem = this.itemService.getItemToBeUpdated();
+  item = this.itemService.getItemToBeUpdated();
 
   ngOnInit(): void {}
 
-  updateItem(): void {
-    this.itemService.updateItem(this.givenItem);
+  updateItem() {
+    this.itemService.updateItem(this.item).subscribe(
+      (res:any)=>{
+        console.log('successful');
+        this.router.navigateByUrl('dashboard');
+      },
+      (err)=>{
+        console.log(err);
+      }
+    );
   }
 }

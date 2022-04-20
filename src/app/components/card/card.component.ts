@@ -14,7 +14,7 @@ export class CardComponent implements OnInit {
   constructor(private itemsService: ItemsService, private router: Router, private userService: UserService) {}
   items!: Item[];
   userDetails = new User();
-  
+  selectedItem = new Item();
 
   ngOnInit(): void {
     this.refreshItemList();
@@ -50,6 +50,14 @@ export class CardComponent implements OnInit {
   updateItem(item: Item, i: any): void {
     this.itemsService.setItemToBeUpdated(item, i);
     this.router.navigate(['update-item']);
+  }
+
+  onClick(givenItem: Item){
+    this.selectedItem = givenItem;
+  }
+
+  delete(){
+    
   }
   
 
