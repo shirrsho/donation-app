@@ -10,6 +10,7 @@ export class ItemsService {
   constructor(private http:HttpClient) {}
 
   itemToBeUpdated = new Item();
+  selectedItem = new Item();
   itemToBeUpdatedIndex: any = 0;
   tempURL: string='';
   model = {

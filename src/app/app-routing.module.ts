@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './components/auth/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ViewDetailsComponent } from './view-details/view-details.component';
 
 const routes: Routes = [
   { path: '', component: SignupComponent },
@@ -17,6 +18,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   {
     path: 'add', component: AddItemComponent
+  },
+  {
+    path: 'view-details', component: ViewDetailsComponent
   }
 
 ];
