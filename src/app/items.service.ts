@@ -1,25 +1,35 @@
 import { Item } from './Item';
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
-  items: Item[] = [
-    { id: 1, name: 'Teach Yourself C', picsrc: '', owner: 0, requests: [] },
-    { id: 2, name: 'Software Engineering', picsrc: '', owner: 0, requests: [] },
-  ];
-  constructor() {}
+  items!: Item[];
+  constructor(private http:HttpClient) {}
 
   itemToBeUpdated = new Item();
+  selectedItem = new Item();
   itemToBeUpdatedIndex: any = 0;
-  getItems(): Item[] {
-    return this.items;
+  tempURL: string='';
+  model = {
+    userID: ''
   }
 
-  deleteItem(givenItem: Item): Item[] {
-    this.items = this.items.filter((item) => givenItem.id != item.id);
-    return this.items;
+  getItems() {
+    return this.http.get(environment.apiBaseUrl+ '/products');
+  }
+
+  deleteItem(givenItem: Item) {
+    return this.http.delete(environment.apiBaseUrl+'/product/'+ givenItem._id);
+  }
+
+  claimItem(givenItem: Item, requesterID: string){
+    this.tempURL = environment.apiBaseUrl + '/product/join/' + givenItem._id;
+    this.model.userID = requesterID;
+    console.log(this.model, this.tempURL);
+    return this.http.put(this.tempURL,this.model);
   }
 
   setItemToBeUpdated(givenitem: Item, i: number) {
@@ -32,10 +42,10 @@ export class ItemsService {
   }
 
   updateItem(givenItem: Item) {
-    this.items.splice(this.itemToBeUpdatedIndex, 1, givenItem);
+    return this.http.put(environment.apiBaseUrl+'/product/'+ givenItem._id, givenItem);
   }
 
   addItem(givenItem: Item) {
-    this.items.push(givenItem);
+    return this.http.post(environment.apiBaseUrl+'/addproduct', givenItem)
   }
 }

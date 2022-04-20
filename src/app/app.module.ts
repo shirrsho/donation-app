@@ -10,6 +10,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './components/auth/auth.guard';
+import { UserService } from './users.service';
+import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { ProfileComponent } from './profile/profile.component';
+import { AddItemComponent } from './add-item/add-item.component';
+import { ViewDetailsComponent } from './view-details/view-details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +27,9 @@ import { UpdateItemComponent } from './components/update-item/update-item.compon
     DashboardComponent,
     CardComponent,
     UpdateItemComponent,
+    ProfileComponent,
+    AddItemComponent,
+    ViewDetailsComponent,
   ],
   exports: [
     AppComponent,
@@ -27,9 +37,14 @@ import { UpdateItemComponent } from './components/update-item/update-item.compon
     SignupComponent,
     NavbarComponent,
     DashboardComponent,
+    HttpClientModule
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }, AuthGuard, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
